@@ -97,7 +97,8 @@ footer {
     color: #70757A;
     margin-left: 30px;
 }
-.footerContentFont:first-child{
+
+.footerContentFont:first-child {
     margin-left: 0;
 }
 
@@ -109,6 +110,6 @@ footer {
     color: #70757A;
 }
 
-body{
+body {
     margin: 0;
 }
