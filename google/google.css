@@ -48,6 +48,7 @@ section {
     margin-top: 30px;
     font-size: 16px;
     padding-left: 15px;
+    outline: none;
 }
 
 .content {
