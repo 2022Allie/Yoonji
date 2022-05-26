@@ -5,22 +5,35 @@ const list = document.getElementById("sectionArticle");
 
 
 let count = 0;
-let cnt = 0;
-const check = () => {
+// let cnt = 0;
+const check = (cnt) => {
     const checkButton = document.getElementsByClassName(`check${cnt}`)[0];
     const checkcheck = document.createElement('div');
     checkcheck.className = "check";
     checkcheck.id = `check${cnt}`;
 
-    checkcheck.innerHTML = `
-      <div id="check">
+    if (checkButton.innerHTML.trim() == "") {
+        checkcheck.innerHTML = `
+        <div id="check">
       <img src="./img/v.svg" alt="이거슨체크다이말이여">
       </div>
-    `
-    
-    cnt++;
+    `;
+        checkButton.appendChild(checkcheck);
+    }
+    else{
+        // checkcheck.innerHTML="";
+        // checkcheck.appendChild(checkcheck);
+        console.log("바보");
+    }
 
-    checkButton.appendChild(checkcheck);
+
+    // cnt++;
+
+}
+
+const deleteList = (cnt) => {
+    const content = document.getElementById(`content${cnt}`);
+    content.innerHTML="";
 }
 
 
@@ -31,17 +44,22 @@ const inputText = () => {
     content.id = `content${count}`;
 
     content.innerHTML = `
-    <div id="todayListContainer">
-                 <div id="list"> 
-                      <div class="list">
-                      ${input_text.value}
-                      </div>
-                 </div>
-                 <div id="checkIcon" onclick="check()" class="check${count}" > 
-
-                 </div>
-            </div>
+   <div id="todayListContainer">
+                <div id="checkIcon" onclick="check(${count})" class="check${count}">
+                </div>
+                <div id="list">
+                    <div class="list">
+                        ${input_text.value}
+                    </div>
+                </div>
+                <div id="deleteIcon" onclick="deleteList(${count})">
+                    <img src="./img/X.svg" alt="삭줴">
+                </div>
+            
+    </div>
     `
+
+    //hiFunctiopn -> 연상선배가 알려주신 낙타체
 
     //console.log(checkButton);
     //checkButton.addEventListener('click', check);
@@ -59,10 +77,6 @@ function delete_text() {
     const currentVal = input_text.value;
     input_text.value = '';
 }
-
-
-
-
 
 
 
